@@ -24,7 +24,7 @@ Artificial Intelligence models with natural language processing (NLP) and distri
 As of the details of the project, different from traditional sentiment analysis as you might have noticed, we analyze sentiment for different topics, which are predicted by two separate model systems.
 
 <p align="center">
-  <img src="Report/fig/Problem_Formulation.png" style="max-width: 900px"/>
+  <img src="Report/fig/Problem_Formulation.png" style="max-width: 1000px"/>
   <em>Problem Formulation</em>
 </p>
 
@@ -43,7 +43,7 @@ Each point stands for a single post of a patient, and all these points are repre
 Take a cluster on the grid of Cataract on Costs topic, as it is shown below, the red cluster in the circle refers to a topic about patient’s complaints on doctors’ profit-driven behaviors. This is efficient for us to briefly get a sense of various potential issues and  topics among patients within any disease group before a deep dive. We’ve also taken visualization as a look up tool during our meetings with medical startups.
 
 <p align="center">
-  <img src="Report/fig/graph_detail.png" style="max-width: 900px" />
+  <img src="Report/fig/graph_detail.png" style="max-width: 1000px" />
   <em>Eg. Cataract on Costs topic</em>
 </p>
 
@@ -53,14 +53,14 @@ After being tagged with topics and sentiment, the final database is essentially 
 A case here is a group related to Depression problem, which is one of the top movers in its negative ratio of Trust topic among all groups. So we take it as an example to go through all functions. 
 
 <p align="center">
-  <img src="Report/fig/negative_ratio_comparison.png" style="max-width: 900px" />
+  <img src="Report/fig/negative_ratio_comparison.png" style="max-width: 1000px" />
   <em>Negative Sentiment Ratio Percentile in 2019 vs 2020</em>
 </p>
 
 A sentiment timeline simply gives us a sense of how patients’ sentiment changes over quarters in a specific disease group. The line chart below illustrates how much worse patients with depression issues were experiencing trust issues against their doctors, treatment, medicines, or the medical system during the period after the national announcement of quarantine when COVID-19 was breaking out globally.
 
 <p align="center">
-  <img src="Report/fig/sentiment_timeline.png" style="max-width: 900px" />
+  <img src="Report/fig/sentiment_timeline.png" style="max-width: 1000px" />
   <em>Nagtive Sentiment Timeline of Depression Group</em>
 </p>
 
@@ -68,7 +68,7 @@ At the same time, based on the rank position of the negative topic ratio for eve
 
 
 <p align="center">
-  <img src="Report/fig/radar_chart.png" style="max-width: 900px" />
+  <img src="Report/fig/radar_chart.png" style="max-width: 1000px" />
   <em>Radar Chart (Fingerprint) for the Depression Group</em>
 </p>
 
@@ -92,7 +92,6 @@ The first challenge comes from the annotation. We collect data without labels fr
 <p align="center">
   <img src="Report/fig/Pipeline.png" width="50%" height="50%"  />
   <img src="Report/fig/Workflow.png" width="40%" height="50%"  />
-
   <em>Pipeline and Workflow</em>
 </p>
 
@@ -105,7 +104,7 @@ Also this is a complete end-to-end productionized data science CI/CD pipeline ru
 We used Scrapy to collect around 1.3 million patients’ narratives from the biggest patient online forum ([patient.info](https://patient.info/)) in U.K and the U.S. as our dataset. As it is a supervised learning task, we coded all labels we think are important in terms of investment perspective on our own, see table below. In order to annotate our data as quickly and accurately as possible, we designed a survey and sent them out to collect labels on Amazon Mechanical Turk. We embedded a sample of size 5,000 that annotated by our own in the survey with 50,000 posts we sent out to check the performance of workers.
 
 <p align="center">
-  <img src="Report/fig/Code_of_Label_for_Ground_Truth.png" style="max-width: 900px" />
+  <img src="Report/fig/Code_of_Label_for_Ground_Truth.png" style="max-width: 1000px" />
   <em>Code of Label for Ground-Truth</em>
 </p>
 
@@ -116,7 +115,7 @@ Raw texts always contain wrong spelling, redundant punctuations, meaningless inf
 We tried three different kinds of word embeddings: `FastText.300d` embedding (trained on this dataset) and other two popular pre-trained word embeddings, `glove.840B.300d` and `glove.twitter.27B`. It turned out our FastText embedding led to a better performance of models and we ascribed this to more domain-oriented clinical terminologies in the corpus. Below is the T-SNE visualization of the post embedding across 10 common disease topics. We do see some clusters, while the overall clustering effect was not as great as we expected due to noisy posts or general discussions.
 
 <p align="center">
-  <img src="Report/fig/Model_Infrastructure.png" style="max-width: 900px" />
+  <img src="Report/fig/Model_Infrastructure.png" style="max-width: 1000px" />
   <em>Model Instracture</em>
 </p>
 
@@ -126,7 +125,7 @@ We built an ensembled logistic regression and a neural network with three linear
 After a bunch of experiments and model tuning, Pooled RNN (avg f1: 0.566) and BERT (avg f1: 0.557) led to better performance on the test set. As they caught different things as shown in the accuracy of all data and the accuracy of all data excluding data without any target labels, we ensembled them together to generate the best model that outerfromed than two below (avg f1: 0.571).
 
 <p align="center">
-  <img src="Report/fig/Evaluation.png" style="max-width: 900px" />
+  <img src="Report/fig/Evaluation.png" style="max-width: 1000px" />
   <em>Evaluation of Models</em>
 </p>
 
