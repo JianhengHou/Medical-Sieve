@@ -91,9 +91,9 @@ The first challenge comes from the annotation. We collect data without labels fr
 
 <p align="center">
   <img src="Report/fig/Pipeline.png" width="50%" height="50%"  />
-  <img src="Report/fig/Workflow.png" width="40%" height="40%"  />
+  <img src="Report/fig/Workflow.png" width="45%" height="50%"  />
 
-  <em>Pipeline</em>
+  <em>Pipeline and Workflow</em>
 </p>
 
 The diagram left above shows the whole pipeline of our end-to-end project, which includes data preparation, model training, visualization, and analysis. After crawling raw data (patient’s narrative posts) from the forum, we stored data in Amazon S3 and then followed by text processing using Spark. As our models are supervised based, we need to collect ground-truth label of the data, so we collect them through an online service, Amazon Mechanical Turk.  Entity recognition and relation recognition was done for feature engineering then. After generating and finalizing training dataset, models were built using deep learning frameworks: Keras and Pytorch. The model with the best performance was used to generate prediction results for the rest of all data other than training dataset, from which we got a list of meaningful and insightful insights via visualization and statistical analysis.
