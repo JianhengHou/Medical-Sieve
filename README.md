@@ -91,7 +91,7 @@ The first challenge comes from the annotation. We collect data without labels fr
 
 <p align="center">
   <img src="Report/fig/Pipeline.png" width="50%" height="50%"  />
-  <img src="Report/fig/Workflow.png" width="40%" height="50%"  />
+  <img src="Report/fig/Workflow.png" width="45%" height="50%"  />
   <em>Pipeline and Workflow</em>
 </p>
 
