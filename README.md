@@ -24,7 +24,7 @@ Artificial Intelligence models with natural language processing (NLP) and distri
 As of the details of the project, different from traditional sentiment analysis as you might have noticed, we analyze sentiment for different topics, which are predicted by two separate model systems.
 
 <p align="center">
-  <img src="Report/fig/Problem_Formulation.png" style="max-height: 300px" />
+  <img src="Report/fig/Problem_Formulation.png" />
   <em>Problem Formulation</em>
 </p>
 
