@@ -15,7 +15,8 @@ You might have been going through depression, anxiety, or any mental issues alon
 Artificial Intelligence models with natural language processing (NLP) and distributed big data analysis are the two wheels to land our whole idea on the ground. Given the huge volume of the data to deal with and the feature of unstructured human narrative content, the parallel computing and analytics tool we use like Spark makes the time-consuming pipeline much faster and NLP models seek to clean up the human-generated data, understand and extract value of it. The pipeline project was named Medical-Sieve, which followed the top-down idea that filters valuable information layer by layer from raw data to expose the real knowledge behind. The name just reflects how this framework works systematically and scientifically in our team (Graph below). This innovative pipeline might be one of the few applications in the VC industry. 
 
 <p align="center">
-  <img src="Report/fig/Medical_Sieve_Path.png" style="max-height: 100px" />  
+  <img src="Report/fig/Medical_Sieve_Path.png" style="max-height: 300px" />
+  <em>Problem Formulation</em>
 </p>
 
 ## Problem Statement
