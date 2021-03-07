@@ -34,7 +34,7 @@ Given each post of patient’s narrative, multi-label classification predicts wh
 There are 285 disease groups originally categorized under the discussion forum, as our model identifies both topics and its sentiment of each post of groups refers to, a brain-like visualization, which consists of three dimensions, i.e Disease Group, Topic, and Sentiment,  has been created for a better visual analysis purpose. 
 
 <p align="center">
-  <img src="Report/fig/Aspect-Based_Sentiment_Analysis_for_10_Common_Disease_Categories.png" style="max-height: 300px" />
+  <img src="Report/fig/Aspect-Based_Sentiment_Analysis_for_10_Common_Disease_Categories.png" />
   <em>Aspect-Based Sentiment Analysis for 10 Common Disease Categories</em>
 </p>
 
