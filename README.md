@@ -75,9 +75,9 @@ At the same time, based on the rank position of the negative topic ratio for eve
 The way we selected this group ascribed to its high negative sentiment ratio in trust topic as shown in the fingerprint as well. Representative narrative content of patients is available for reference as well. We are able to know what pinpoints of the topic reveal that negative sentiment and potential insights to be dug in or latent demand to be met.
 For instance, some quotes were extracted from the collection of identified posts with trust issue:
 
->><em>“I lose trust in therapists,I just think it’s hard to find the right therapist. And whoever you choose to see - will not become involved in your feelings”</em>
+><em>“I lose trust in therapists,I just think it’s hard to find the right therapist. And whoever you choose to see - will not become involved in your feelings”</em>
 
->><em>“Now finding a good therapist seems to be very hard- someone you connect to , and most importantly , someone who instructs you how to move through life .”</em>
+><em>“Now finding a good therapist seems to be very hard- someone you connect to , and most importantly , someone who instructs you how to move through life .”</em>
 
 Interestingly, we realized that mental health and its related services being offered now require more spotlights from acute entrepreneurs as well as investors in the market. Our team not only hosted a workshop around the mental health issue for all CEOs of our portfolio companies to help them go through the tough depression days, but also identified several new promising startups which were working well on solving some latent demand of people with mental health issues and providing great online services at the present day. 
 
