@@ -2,6 +2,7 @@
 An End-to-end Topic-based Sentiment Analysis Project for a VC Firm
 
 **Medical Sieve: Top-down to Decipher Patient Sentiment and Unlock Venture Opportunity** 
+
 Topic based sentiment analysis allows us to apply computational linguistics to vast unstructured data sets - and hear what’s really going on in patients’ lives. 
 
 ## Background
