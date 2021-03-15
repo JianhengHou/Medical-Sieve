@@ -1,4 +1,4 @@
-# Medical Sieve: Topic-Based Sentiment Analysis for Patient's Narrative
+# Topic-Based Sentiment Analysis for Patient's Narrative
 An End-to-end Topic-based Sentiment Analysis Project for a VC Firm
 
 **Medical Sieve: Top-down to Decipher Patient Sentiment and Unlock Venture Opportunity** 
