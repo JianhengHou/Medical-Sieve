@@ -122,7 +122,7 @@ We tried three different kinds of word embeddings: `FastText.300d` embedding (tr
 We built an ensembled logistic regression and a neural network with three linear layers as the baseline following works and spent more time on 3 different types of deep learning models as below:
 
 ### Performance
-After a bunch of experiments and model tuning, Pooled RNN (avg f1: 0.566) and BERT (avg f1: 0.557) led to better performance on the test set. As they caught different things as shown in the accuracy of all data and the accuracy of all data excluding data without any target labels, we ensembled them together to generate the best model that outerfromed than two below (avg f1: 0.571).
+After a series of experiments and model tuning, Pooled RNN (avg f1: 0.591) and BERT (micro accuracy: 0.8164) and Pooled RNN Text CNN (avg ROC AUC: 0.966) led to better performance on the test set. As they caught different things as shown in the accuracy of all data and the accuracy of all data excluding data without any target labels, we ensembled Three models together to generate the best model that outerfromed than any three of them below (avg f1: 0.6 and accuracy: 0.816).
 
 <p align="center">
   <img src="Report/fig/Evaluation.png" style="max-width: 1000px" />
