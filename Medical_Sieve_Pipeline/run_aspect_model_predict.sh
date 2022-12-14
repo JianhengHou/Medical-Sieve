@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPT_DIR=$(cd $(dirname ${BASH_SOURCE[0]}); pwd)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
 BERT_ASPECT_DIR="/Medical_Sieve_Model_Pipeline/bert_aspect"
 
 printf "Prediction stage with the POOLED RNN model..."

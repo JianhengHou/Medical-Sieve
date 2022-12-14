@@ -22,7 +22,10 @@ def read_corpus_file(corpus_text_file_path):
     return whole_text
 
 def load_data(data_file_path):
-    df = pd.read_csv(data_file_path)
+    # option1: read json lines 
+    df = pd.read_json(data_file_path, lines=True)
+    # read csv
+    # df = pd.read_csv(data_file_path)
     return df
 
 def fit_tokenizer(num_words, corpus_text, tokenizer_path):
@@ -74,7 +77,8 @@ def padding_sequence_transformer(sequence_text_data, max_sequence_len):
 
 def save_result(prob_prediction, prediction_file_path):
     result_df = pd.DataFrame(prob_prediction, columns=config.ASPECT_TARGET)
-    result_df.to_csv(prediction_file_path, index=False)
+    # result_df.to_csv(prediction_file_path, index=False)
+    result_df.to_json(prediction_file_path,orient='records', lines=True)
     return
 
 def training_part_features_generation_for_stacking(model_name, X_train, y_train, embedding_matrix):
@@ -111,11 +115,19 @@ def test_part_features_generation_for_stacking(model, X_train, y_train, X_test, 
 def read_predictions(selected_model_list, file_mapping):
     predictions_to_be_concatenated = []
     for model_name in selected_model_list:
-        df = pd.read_csv(file_mapping[model_name])
+        # csv files format as the input
+        # df = pd.read_csv(file_mapping[model_name])
+        
+        # json lines format as the input
+        df = pd.read_json(file_mapping[model_name], lines=True) 
+        df = df[config.ASPECT_TARGET]
+
+        print("{} prediction is loaded, and its shape is {}".format(model_name, df.shape))
         new_column_name_mapping = {aspect:model_name + '_'+ aspect for aspect in config.ASPECT_TARGET}
         df = df.rename(columns=new_column_name_mapping)
         predictions_to_be_concatenated.append(df)
     full_prediction = pd.concat(predictions_to_be_concatenated, axis=1)
+    print("full feature dataframe shape",full_prediction.shape)
     return full_prediction
 
 def transform_prediction(prob_prediction):

@@ -52,7 +52,8 @@ def run_predict():
     _logger.info(f"Loading test data...")
     features_df = proc.read_predictions(base_models, 
                                         config.MODEL_PREDICTION_MAPPING)
-
+    print("Feature dataframe shape:", features_df.shape)
+    print("Feature columns:", features_df.columns)
     # load original training data
     df = proc.load_data(config.TEST_DATA_PATH)
 
@@ -63,15 +64,20 @@ def run_predict():
     # make prediction
     _logger.info(f"Predicting test data...")
     prob_prediction = model.predict(features_df)
-    prediction = proc.transform_prediction(prob_prediction)
-    
+
     # fransform probability prediction to real prediction
+    prediction = proc.transform_prediction(prob_prediction)
+    print("Prediction length", len(prediction))
+
+    # concatenate aspects with the original dataframe
     aspects_df = pd.DataFrame(prediction, columns=config.ASPECT_TARGET)
     result_df = pd.concat([df, aspects_df], axis=1)
+    print("final dataframe shape", result_df.shape)
 
     # save result df
     _logger.info(f"Save the aspect prediction result")
-    result_df.to_csv(config.ASPECT_RESULT_PATH, index=False)
+    # result_df.to_csv(config.ASPECT_RESULT_PATH, index=False)
+    result_df.to_json(config.ASPECT_RESULT_PATH,orient='records', lines=True)
     _logger.info(f"Finished predict process for the model: ensemble_aspect_model")
 
 

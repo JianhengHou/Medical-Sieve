@@ -6,16 +6,29 @@ import numpy as np
 PWD = os.path.dirname(os.path.abspath(__file__))
 PACKAGE_ROOT = os.path.abspath(os.path.join(PWD, '..'))
 DATA_DIR = os.path.join(PACKAGE_ROOT, 'data')
+
+with open(os.path.join(PACKAGE_ROOT, 'VERSION')) as version_file:
+    _version = version_file.read().strip()
+
 TRAINED_MODEL_DIR = os.path.join(PACKAGE_ROOT, 'trained_models')
 EMBEDDING_MODEL_DIR = os.path.join(TRAINED_MODEL_DIR, 'embedding_model')
-RAW_DATASET_DIR = os.path.join(DATA_DIR, 'patient-massage-board-raw-dataset')  
-DATASET_TEXT_CORPUS_FILE_PATH = os.path.join(DATA_DIR, 'medical_sieve_sentence_corpus.txt')
+
 TRAINING_DATA_PATH = os.path.join(DATA_DIR, 'medical_sieve_aspect_training_set.csv')
-TEST_DATA_PATH = os.path.join(DATA_DIR, 'line-level-patient-massage-board-dataset.csv')
+
+RAW_DATASET_DIR = os.path.join(DATA_DIR, 'patient-massage-board-raw-dataset')  
+#RAW_DATASET_DIR = os.path.join(DATA_DIR, "raddit_message_board_data")
+
+DATASET_TEXT_CORPUS_FILE_PATH = os.path.join(DATA_DIR, 'medical_sive_sentence_corpus.txt')
+#DATASET_TEXT_CORPUS_FILE_PATH = os.path.join(DATA_DIR, 'raddit_sentence_corpus.txt')
+
+TEST_DATA_PATH = os.path.join(DATA_DIR, 'line-level-patient-massage-board-dataset.jl')
+#TEST_DATA_PATH = os.path.join(DATA_DIR, 'line-level-raddit-massage-board-dataset.jl')
+
 RESULT_DIR = os.path.join(PACKAGE_ROOT, "result")
 TRAINING_STAGE_OUTPUT_DIR = os.path.join(RESULT_DIR, "training_stage_output")
-PREDICT_STAGE_OUTPUT_DIR = os.path.join(RESULT_DIR, "predict_stage_output")
-ASPECT_RESULT_FILE_NAME = f'aspect_prediction_{_version}.csv'
+PREDICT_STAGE_OUTPUT_DIR = os.path.join(RESULT_DIR, "patient_aspect_prediction_stage_output")
+# PREDICT_STAGE_OUTPUT_DIR = os.path.join(RESULT_DIR, "raddit_aspect_prediction_stage_output")
+ASPECT_RESULT_FILE_NAME = f'aspect_prediction_{_version}.jl'
 ASPECT_RESULT_PATH = os.path.join(RESULT_DIR, ASPECT_RESULT_FILE_NAME)
 
 # Set a seed value
@@ -28,19 +41,33 @@ random.seed(SEED_VALUE)
 np.random.seed(SEED_VALUE)
 
 
-with open(os.path.join(PACKAGE_ROOT, 'VERSION')) as version_file:
-    _version = version_file.read().strip()
-
-# DEFINE DATA FIELDS
+#RADDIT  DATA FIELDS
+'''
 FIELDS = ["content_id", 
-          'category',
           "group",
           "post_type", 
           "poster",
           "timestamp",
           "text",
-          "text_processed"]
+          "text_processed",
+          "title",
+          "url",
+          "score",
+          "num_comments_in_submission",
+          "group_subscribers",
+          "upvote_ratio"]
+'''
 
+#PATIENT DATA FIELDS
+FIELDS = ["content_id", 
+          "group",
+          "post_type", 
+          "poster",
+          "timestamp",
+          "text",
+          "text_processed",
+          "category",
+          "url"]
    
 FEATURES = "text_processed"
 
@@ -77,9 +104,9 @@ MODEL1_BATCH_SIZE = 128
 MODEL1_EPOCHS = 100
 MODEL1_FILE_NAME = f'{MODEL1_NAME}_{_version}.h5'
 MODEL1_PATH = os.path.join(TRAINED_MODEL_DIR, MODEL1_FILE_NAME)
-MODEL1_TRAINING_STAGE_OUTPUT_NAME = f'{MODEL1_NAME}_training_stage_prediction_{_version}.csv'
+MODEL1_TRAINING_STAGE_OUTPUT_NAME = f'{MODEL1_NAME}_training_stage_prediction_{_version}.jl'
 MODEL1_TRAINING_STAGE_OUTPUT_PATH = os.path.join(TRAINING_STAGE_OUTPUT_DIR, MODEL1_TRAINING_STAGE_OUTPUT_NAME)
-MODEL1_PREDICTION_NAME = f'{MODEL1_NAME}_prediction_{_version}.csv'
+MODEL1_PREDICTION_NAME = f'{MODEL1_NAME}_prediction_{_version}.jl'
 MODEL1_PREDICTION_PATH = os.path.join(PREDICT_STAGE_OUTPUT_DIR, MODEL1_PREDICTION_NAME)
 
 # Model 2 parameters
@@ -87,15 +114,15 @@ MODEL2_BATCH_SIZE = 256
 MODEL2_EPOCHS = 100
 MODEL2_FILE_NAME = f'{MODEL2_NAME}_{_version}.h5'
 MODEL2_PATH = os.path.join(TRAINED_MODEL_DIR, MODEL2_FILE_NAME)
-MODEL2_TRAINING_STAGE_OUTPUT_NAME = f'{MODEL2_NAME}_training_stage_prediction_{_version}.csv'
+MODEL2_TRAINING_STAGE_OUTPUT_NAME = f'{MODEL2_NAME}_training_stage_prediction_{_version}.jl'
 MODEL2_TRAINING_STAGE_OUTPUT_PATH = os.path.join(TRAINING_STAGE_OUTPUT_DIR, MODEL2_TRAINING_STAGE_OUTPUT_NAME)
-MODEL2_PREDICTION_NAME = f'{MODEL2_NAME}_prediction_{_version}.csv'
+MODEL2_PREDICTION_NAME = f'{MODEL2_NAME}_prediction_{_version}.jl'
 MODEL2_PREDICTION_PATH = os.path.join(PREDICT_STAGE_OUTPUT_DIR, MODEL2_PREDICTION_NAME)
 
 # Model 3 parameters
-MODEL3_TRAINING_STAGE_OUTPUT_NAME = f'{MODEL3_NAME}_training_stage_prediction_{_version}.csv'
+MODEL3_TRAINING_STAGE_OUTPUT_NAME = f'{MODEL3_NAME}_training_stage_prediction_{_version}.jl'
 MODEL3_TRAINING_STAGE_OUTPUT_PATH = os.path.join(TRAINING_STAGE_OUTPUT_DIR, MODEL3_TRAINING_STAGE_OUTPUT_NAME)
-MODEL3_PREDICTION_NAME = f'{MODEL3_NAME}_prediction_{_version}.csv'
+MODEL3_PREDICTION_NAME = f'{MODEL3_NAME}_prediction_{_version}.jl'
 MODEL3_PREDICTION_PATH = os.path.join(PREDICT_STAGE_OUTPUT_DIR, MODEL3_PREDICTION_NAME)
 
 # Model 4 parameters
@@ -104,7 +131,7 @@ MODEL4_BATCH_SIZE = 128
 MODEL4_EPOCHS = 200
 MODEL4_FILE_NAME = f'{MODEL4_NAME}_{_version}.h5'
 MODEL4_PATH = os.path.join(TRAINED_MODEL_DIR, MODEL4_FILE_NAME)
-MODEL4_PREDICTION_NAME = f'{MODEL4_NAME}_prediction_{_version}.csv'
+MODEL4_PREDICTION_NAME = f'{MODEL4_NAME}_prediction_{_version}.jl'
 MODEL4_PREDICTION_PATH = os.path.join(RESULT_DIR, MODEL4_PREDICTION_NAME)
 SOFTMAX_THRESHOLD = [0.4, 0.25, 0.3, 0.45, 0.3]
 
