@@ -1,0 +1,56 @@
+Training/evaluation parameters Namespace(adam_epsilon=1e-08, arch='bert', data_name='medical_sieve_sentiment', do_data=False, do_lower_case=False, do_test=True, do_train=False, epochs=1, eval_batch_size=16, eval_max_seq_len=256, fp16=False, fp16_opt_level='O1', grad_clip=1.0, gradient_accumulation_steps=1, learning_rate=2e-05, local_rank=-1, loss_scale=0, mode='min', monitor='valid_loss', n_gpu='0', predict_checkpoints=0, resume_path='', save_best=True, seed=0, sorted=0, train_batch_size=16, train_max_seq_len=256, valid_size=0.2, warmup_proportion=0.1, weight_decay=0.01)
+Loading examples from cached file pybert/dataset/cached_test_examples_bert
+Loading features from cached file pybert/dataset/cached_test_features_256_bert
+loading configuration file pybert/output/checkpoints/bert/config.json
+Model config BertConfig {
+  "architectures": [
+    "BertForMultiLable"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": null,
+  "do_sample": false,
+  "eos_token_ids": null,
+  "finetuning_task": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "is_decoder": false,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "layer_norm_eps": 1e-12,
+  "length_penalty": 1.0,
+  "max_length": 20,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_beams": 1,
+  "num_hidden_layers": 12,
+  "num_labels": 1,
+  "num_return_sequences": 1,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "output_past": true,
+  "pad_token_id": 0,
+  "pruned_heads": {},
+  "repetition_penalty": 1.0,
+  "temperature": 1.0,
+  "top_k": 50,
+  "top_p": 1.0,
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "use_bfloat16": false,
+  "vocab_size": 30522
+}
+
+loading weights file pybert/output/checkpoints/bert/pytorch_model.bin
+model predicting....
+Warning: There's no GPU available on this machine, training will be performed on CPU.
+Warning: The number of GPU's configured to use is 0, but only 0 are available on this machine.

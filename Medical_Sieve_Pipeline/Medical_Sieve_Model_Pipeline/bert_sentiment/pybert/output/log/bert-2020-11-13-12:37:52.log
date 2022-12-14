@@ -1,0 +1,75 @@
+Training/evaluation parameters Namespace(adam_epsilon=1e-08, arch='bert', data_name='medical_sieve_sentiment', do_data=False, do_lower_case=False, do_test=False, do_train=True, epochs=3, eval_batch_size=16, eval_max_seq_len=256, fp16=False, fp16_opt_level='O1', grad_clip=1.0, gradient_accumulation_steps=1, learning_rate=2e-05, local_rank=-1, loss_scale=0, mode='min', monitor='valid_loss', n_gpu='0', predict_checkpoints=0, resume_path='', save_best=True, seed=0, sorted=0, train_batch_size=16, train_max_seq_len=256, valid_size=0.2, warmup_proportion=0.1, weight_decay=0.01)
+split raw data into train and valid
+Loading examples from cached file pybert/dataset/cached_train_examples_bert
+Loading features from cached file pybert/dataset/cached_train_features_256_bert
+Loading examples from cached file pybert/dataset/cached_valid_examples_bert
+Loading features from cached file pybert/dataset/cached_valid_features_256_bert
+initializing model
+loading configuration file pybert/pretrain/bert/base-uncased/config.json
+Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": null,
+  "do_sample": false,
+  "eos_token_ids": null,
+  "finetuning_task": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "is_decoder": false,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "layer_norm_eps": 1e-12,
+  "length_penalty": 1.0,
+  "max_length": 20,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_beams": 1,
+  "num_hidden_layers": 12,
+  "num_labels": 1,
+  "num_return_sequences": 1,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "output_past": true,
+  "pad_token_id": 0,
+  "pruned_heads": {},
+  "repetition_penalty": 1.0,
+  "temperature": 1.0,
+  "top_k": 50,
+  "top_p": 1.0,
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "use_bfloat16": false,
+  "vocab_size": 30522
+}
+
+loading weights file pybert/pretrain/bert/base-uncased/pytorch_model.bin
+Weights of BertForMultiLable not initialized from pretrained model: ['classifier.weight', 'classifier.bias']
+Weights from pretrained model not used in BertForMultiLable: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+initializing callbacks
+***** Running training *****
+  Num examples = 37136
+  Num Epochs = 3
+  Total train batch size (w. parallel, distributed & accumulation) = 16
+  Gradient Accumulation steps = 1
+  Total optimization steps = 6963
+Warning: There's no GPU available on this machine, training will be performed on CPU.
+Warning: The number of GPU's configured to use is 0, but only 0 are available on this machine.
+Epoch 1/3
+
+Epoch: 1 -  loss: 0.4894 - auc: 0.7993 - valid_loss: 0.4384 - valid_auc: 0.8468 
+
+Epoch 1: valid_loss improved from inf to 0.43843
+Configuration saved in pybert/output/checkpoints/bert/config.json
+Model weights saved in pybert/output/checkpoints/bert/pytorch_model.bin
